@@ -106,7 +106,7 @@ def update_account(account_id):
     This endpoint will update an existing account based on the account_id that is requested
     """
     app.logger.info("Request to update an Account with id: %s", account_id)
-    account=Account.find(account_id)
+    account = Account.find(account_id)
     if not account:
         abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] could not be found.")
     account.deserialize(request.get_json())
@@ -124,8 +124,8 @@ def delete_account(account_id):
     Deletes an Account
     This endpoint will delete an  account based on the account_id that is requested
     """
-    app.logger.info("Request to delete an Account with id: %s", account_id) 
-    account=Account.find(account_id)
+    app.logger.info("Request to delete an Account with id: %s", account_id)
+    account = Account.find(account_id)
     if not account:
         abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] could not be found.")
     account.delete()
